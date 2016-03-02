@@ -5,24 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
 
-    public Canvas MainCanvas;
-    public Canvas SettingsCanvas;
-    public Scene Game;
-    public float hSliderValue = 0.0F;
+    public Canvas MainCanvas, SettingsCanvas;
     public bool CanMute;
     public GameObject[] buttons;
+    public Camera cam;
 
     void Awake()
     {
         SettingsCanvas.enabled = false;
         MainCanvas.enabled = true;
         CanMute = true;
- 
-        if (buttons == null)
-            buttons = GameObject.FindGameObjectsWithTag("Button");
+        buttons = GameObject.FindGameObjectsWithTag("Button");
 
-        //Instantiate(respawnPrefab, respawn.transform.position, respawn.transform.rotation);
-
+        if(PlayerPrefs.HasKey("bgR"))
+        {
+            Color color0 = new Color(PlayerPrefs.GetFloat("bgR"), PlayerPrefs.GetFloat("bgG"), PlayerPrefs.GetFloat("bgB"), 1);
+            cam.backgroundColor = color0;
+        }
+        if (PlayerPrefs.HasKey("btX"))
+        {
+            foreach (GameObject button in buttons)
+            {
+                button.transform.localScale = new Vector3(PlayerPrefs.GetFloat("btX"), PlayerPrefs.GetFloat("btY"), 1);
+            }
+        }
     }
 
     public void Mute()
@@ -43,16 +49,6 @@ public class Menu : MonoBehaviour {
     {
         SettingsCanvas.enabled = true;
         MainCanvas.enabled = false;
-    }
-
-
-    public void ScaleSlider(float f)
-    {
-        //ExitButton.gameObject.transform.localScale += new Vector3(f, f, f);
-        foreach (GameObject button in buttons)
-        {
-            button.transform.localScale += new Vector3(f, f, f);
-        }
     }
 
     public void ReturnOn()
