@@ -57,14 +57,18 @@ public class Menu : MonoBehaviour {
         MainCanvas.enabled = true;
     }
 
-    public void LoadGame()
+    public void LoadGuess()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void LoadLibrary()
+    public void LoadPlay()
     {
         SceneManager.LoadScene(2);
+    }
+    public void LoadLibrary()
+    {
+        SceneManager.LoadScene(3);
     }
 
     public void ExitGame()

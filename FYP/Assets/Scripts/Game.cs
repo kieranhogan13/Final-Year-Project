@@ -5,13 +5,11 @@ using UnityEngine.SceneManagement;
 public class Game : MonoBehaviour {
 
     public Canvas MainCanvas;
-    public bool CanMute;
     public GameObject[] buttons;
     public Camera cam;
 
     void Awake()
     {
-        CanMute = true;
         buttons = GameObject.FindGameObjectsWithTag("Button");
 
         if (PlayerPrefs.HasKey("bgR"))
@@ -28,18 +26,9 @@ public class Game : MonoBehaviour {
         }
     }
 
-    // Use this for initialization
-    void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
     public void MenuReturn()
     {
         SceneManager.LoadScene(0);
     }
+
 }
