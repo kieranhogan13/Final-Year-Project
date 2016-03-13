@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
 
-    public Canvas MainCanvas, SettingsCanvas;
+    public Canvas MainCanvas;
     public bool CanMute;
     public GameObject[] buttons;
     public Camera cam;
+    public GameObject SecureSettings;
+    public bool ShowSecureSettings;
 
     void Awake()
     {
-        SettingsCanvas.enabled = false;
+        SecureSettings.SetActive(ShowSecureSettings);
         MainCanvas.enabled = true;
         CanMute = true;
         buttons = GameObject.FindGameObjectsWithTag("Button");
@@ -45,27 +47,27 @@ public class Menu : MonoBehaviour {
         }
     }
 
-    public void SettingsOn()
+    public void ShowSettingsSecure()
     {
-        SettingsCanvas.enabled = true;
-        MainCanvas.enabled = false;
+        ShowSecureSettings = !ShowSecureSettings;
+        SecureSettings.SetActive(ShowSecureSettings);
+    }
+    public void HideSettingsSecure()
+    {
+        ShowSecureSettings = false;
+        SecureSettings.SetActive(ShowSecureSettings);
     }
 
-    public void ReturnOn()
-    {
-        SettingsCanvas.enabled = false;
-        MainCanvas.enabled = true;
-    }
-
-    public void LoadGuess()
+    public void LoadSettings()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void LoadPlay()
+    public void LoadGame()
     {
         SceneManager.LoadScene(2);
     }
+
     public void LoadLibrary()
     {
         SceneManager.LoadScene(3);
@@ -75,4 +77,5 @@ public class Menu : MonoBehaviour {
     {
         Application.Quit();
     }
+
 }
