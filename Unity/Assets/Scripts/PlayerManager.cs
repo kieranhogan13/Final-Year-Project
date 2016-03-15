@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -9,14 +10,20 @@ public class PlayerManager : MonoBehaviour
     float speed;
     public float jumpSpeedY;
     public float speedX;
+    public AudioClip bark;
+    private AudioSource source;
+    private float volLowRange = .5f;
+    private float volHighRange = 1.0f;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         facingRight = true;
-	}
+        source = GetComponent<AudioSource>();
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -44,6 +51,8 @@ public class PlayerManager : MonoBehaviour
             Jumping = true;
             rb.AddForce(new Vector2(rb.velocity.x, jumpSpeedY));
             anim.SetInteger("State", 3);
+            float vol = Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(bark, vol);
         }
 
         if (speed > 0 && !facingRight || speed < 0 && facingRight)
@@ -70,10 +79,9 @@ public class PlayerManager : MonoBehaviour
     }
 
 
-
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Ground")
+        if (other.gameObject.tag == "Ground")
         {
             Jumping = false;
             anim.SetInteger("State", 0);
@@ -100,5 +108,7 @@ public class PlayerManager : MonoBehaviour
         Jumping = true;
         rb.AddForce(new Vector2(rb.velocity.x, jumpSpeedY));
         anim.SetInteger("State", 3);
+        float vol = Random.Range(volLowRange, volHighRange);
+        source.PlayOneShot(bark, vol);
     }
 }

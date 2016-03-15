@@ -103,29 +103,29 @@ public class Menu : MonoBehaviour {
         SecureSettings.SetActive(ShowSecureSettings);
     }
 
-    public void ShowTutorial()
-    {
-        SceneManager.LoadScene(0);
-    }
+    //public void ShowTutorial()
+    //{
+    //    SceneManager.LoadScene(0);
+    //}
 
     public void LoadSettings()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
     public void LoadGuess()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 
     public void LoadGame()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(3);
     }
 
     public void LoadLibrary()
     {
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene(4);
     }
 
     public void ExitGame()

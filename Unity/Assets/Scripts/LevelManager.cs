@@ -15,4 +15,14 @@ public class LevelManager : MonoBehaviour {
     {
         GUILayout.Label(score.ToString());
     }
+
+    public void ReturnToHome()
+    {
+        SceneManager.LoadScene(0);
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel")+1);
+    }
 }
