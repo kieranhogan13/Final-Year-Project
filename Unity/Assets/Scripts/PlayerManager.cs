@@ -10,7 +10,6 @@ public class PlayerManager : MonoBehaviour
     public float jumpSpeedY;
     public float speedX;
 
-
 	// Use this for initialization
 	void Start ()
     {
@@ -47,6 +46,14 @@ public class PlayerManager : MonoBehaviour
             anim.SetInteger("State", 3);
         }
 
+        if (speed > 0 && !facingRight || speed < 0 && facingRight)
+        {
+            facingRight = !facingRight;
+            Vector3 temp = transform.localScale;
+            temp.x *= -1;
+            transform.localScale = temp;
+        }
+
     }
 
     void MovePlayer(float playerSpeed)
@@ -62,16 +69,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    void Flip()
-    {
-        if (speed > 0 && !facingRight || speed < 0 && facingRight)
-        {
-            facingRight = !facingRight;
-            Vector3 temp = transform.localScale;
-            temp.x *= -1;
-            transform.localScale = temp;
-        }
-    }
+
 
     void OnCollisionEnter2D(Collision2D other)
     {

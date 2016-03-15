@@ -4,8 +4,15 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
 
-	public void LoadGame(string name)
+    public int score;
+
+    public void AddPoints(int points)
     {
-        SceneManager.LoadScene(name);
+        score += points;
+    }
+
+    void OnGUI()
+    {
+        GUILayout.Label(score.ToString());
     }
 }
