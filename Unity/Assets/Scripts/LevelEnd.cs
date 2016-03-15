@@ -4,7 +4,7 @@ using System.Collections;
 public class LevelEnd : MonoBehaviour {
 
     public Canvas MainCanvas, EndCanvas;
-    public AudioClip youwin;
+    public AudioClip applause;
     private AudioSource source;
 
     // Use this for initialization
@@ -12,7 +12,7 @@ public class LevelEnd : MonoBehaviour {
 
         MainCanvas.enabled = true;
         EndCanvas.enabled = false;
-
+        source = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -27,7 +27,7 @@ public class LevelEnd : MonoBehaviour {
             {
                 MainCanvas.enabled = false;
                 EndCanvas.enabled = true;
-                source.PlayOneShot(youwin, 1.0f);
+                source.PlayOneShot(applause, 1.0f);
             }
         }
     }

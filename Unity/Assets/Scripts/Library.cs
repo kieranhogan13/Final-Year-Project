@@ -7,7 +7,6 @@ public class Library : MonoBehaviour {
     public Canvas MainCanvas;
     public GameObject[] buttons;
     public Camera cam;
-    Animator anim;
 
     void Awake()
     {
@@ -32,18 +31,4 @@ public class Library : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
-    public void Run()
-    {
-        anim.SetInteger("State", 2);
-    }
-
-    public void Walk()
-    {
-        anim.SetInteger("State", 1);
-    }
-
-    public void Idle()
-    {
-        anim.SetInteger("State", 0);
-    }
 }
