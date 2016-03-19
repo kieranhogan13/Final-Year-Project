@@ -15,6 +15,11 @@ public class Menu : MonoBehaviour {
     public GUITexture overlay;
     public float fadeTime;
 
+    void  Start()
+    {
+        Handheld.PlayFullScreenMovie("test.mp4", Color.black, FullScreenMovieControlMode.CancelOnInput);
+    }
+
     void Awake()
     {    
         MainCanvas.enabled = false;
