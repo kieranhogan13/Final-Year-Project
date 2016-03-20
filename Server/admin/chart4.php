@@ -117,7 +117,7 @@
 
   // Form the SQL query that returns the top 10 most populous countries
 
-  $strQuery = "SELECT category, score FROM tracking ORDER BY category";
+  $strQuery = "SELECT category, SUM(score) FROM tracking ORDER BY category";
 
   // Execute the query, or else return the error message.
 
@@ -155,7 +155,7 @@
   while($row = mysqli_fetch_array($result)) {
   array_push($arrData["data"], array(
     "label" => $row["category"],
-    "value" => $row["score"]
+    "value" => $row["SUM(score)"]
     )
   );
   }

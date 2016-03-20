@@ -14,7 +14,7 @@
 		if ($count == 1)
 		{
 			$_SESSION['login_admin']=$myusername;
-			header("location: http://localhost:7777/clogin/admin/");
+			header("location: http://localhost:7777/admin/");
 		}
 	}
 ?>
