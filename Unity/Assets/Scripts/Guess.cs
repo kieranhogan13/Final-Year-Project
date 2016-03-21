@@ -9,15 +9,25 @@ public class Guess : MonoBehaviour {
     public Camera cam;
     public GameObject SecureSettings;
     public bool ShowSecureSettings;
-    public Canvas MainCanvas, EndCanvas;
+    public Canvas MainCanvas, WinCanvas, LoseCanvas;
     public AudioClip welldone;
     private AudioSource source;
+    public bool word1, word2, word3, word4, word5;
+    public int applause, wrongWordCount;
 
     void Start()
     {
         MainCanvas.enabled = true;
-        EndCanvas.enabled = false;
+        WinCanvas.enabled = false;
+        LoseCanvas.enabled = false;
         source = GetComponent<AudioSource>();
+        word1 = false;
+        word2 = false;
+        word3 = false;
+        word4 = false;
+        word5 = false;
+        wrongWordCount = 0;
+        applause = 0;
     }
 
     void Awake()
@@ -41,11 +51,72 @@ public class Guess : MonoBehaviour {
         }
     }
 
-    public void CorrectAnswer()
+    void Update()
+    {
+        if (word1 && word2 && word3 && word4)
+        {
+            CorrectAnswer();
+        }
+        if (wrongWordCount >= 2)
+        {
+            WrongAnswer();
+        }
+    }
+
+    void CorrectAnswer()
     {
         MainCanvas.enabled = false;
-        EndCanvas.enabled = true;
-        source.PlayOneShot(welldone, 1.0f);
+        WinCanvas.enabled = true;
+        PlayerPrefs.SetInt("LevelProgress", 1);
+        if (applause == 0)
+        {
+            source.PlayOneShot(welldone, 1.0f);
+            applause ++;
+        }
+    }
+
+    void WrongAnswer()
+    {
+        MainCanvas.enabled = false;
+        LoseCanvas.enabled = true;
+        PlayerPrefs.SetInt("LevelProgress", 0);
+        
+    }
+
+    public void Word1Button()
+    {
+        word1 = true;
+        word2 = false;
+        word3 = false;
+        word4 = false;
+        word5 = false;
+    }
+    public void Word2Button()
+    {
+        word2 = true;
+        word3 = false;
+        word4 = false;
+        word5 = false;
+    }
+    public void Word3Button()
+    {
+        word3 = true;
+        word4 = false;
+        word5 = false;
+    }
+    public void Word4Button()
+    {
+        word4 = true;
+    }
+    public void Word5Button()
+    {
+        word5 = true;
+        wrongWordCount++;
+    }
+
+    public void TryAgainButton()
+    {
+        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
     }
 
     public void NextButton()
