@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class DataLoader : MonoBehaviour {
 
@@ -14,11 +15,17 @@ public class DataLoader : MonoBehaviour {
         print(itemsDataString);
         items = itemsDataString.Split(';');
         print(GetDataValue(items[0], "Name:"));
+        gameObject.GetComponent<GUIText>().text = GetDataValue(items[0], "Name:");
     }
 	
     string GetDataValue(string data, string index)
     {
         string value = data.Substring(data.IndexOf(index) + index.Length);
         return value;
+    }
+
+    public void onClickReturn()
+    {
+        SceneManager.LoadScene(0);
     }
 }

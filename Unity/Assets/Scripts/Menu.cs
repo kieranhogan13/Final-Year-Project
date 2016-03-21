@@ -138,6 +138,11 @@ public class Menu : MonoBehaviour {
         SceneManager.LoadScene(6);
     }
 
+    public void DBTest()
+    {
+        SceneManager.LoadScene(7);
+    }
+
     public void ExitGame()
     {
         Application.Quit();
