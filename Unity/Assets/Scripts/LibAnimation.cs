@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class LibAnimation : MonoBehaviour {
 
@@ -27,5 +28,10 @@ public class LibAnimation : MonoBehaviour {
     public void Dance()
     {
         anim.SetInteger("State", 3);
+    }
+
+    public void LibraryReturn()
+    {
+        SceneManager.LoadScene(6);
     }
 }

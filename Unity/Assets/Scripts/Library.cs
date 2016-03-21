@@ -31,4 +31,19 @@ public class Library : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
+    public void LoadLibraryActivities()
+    {
+        SceneManager.LoadScene(7);
+    }
+
+    public void LoadLibraryGames()
+    {
+        //SceneManager.LoadScene(0);
+    }
+
+    public void LoadLibraryMoving()
+    {
+        //SceneManager.LoadScene(0);
+    }
+
 }
