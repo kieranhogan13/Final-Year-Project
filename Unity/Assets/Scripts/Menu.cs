@@ -25,9 +25,8 @@ public class Menu : MonoBehaviour {
         MainCanvas.enabled = false;
         overlay.pixelInset = new Rect(0, 0, Screen.width, Screen.height);
         StartCoroutine(FadeToClear());
- 
         SecureSettings.SetActive(ShowSecureSettings);
-      
+
         CanMute = true;
         buttons = GameObject.FindGameObjectsWithTag("Button");
         
