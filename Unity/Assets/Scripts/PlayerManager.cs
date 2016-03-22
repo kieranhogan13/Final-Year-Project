@@ -22,8 +22,8 @@ public class PlayerManager : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         facingRight = true;
         source = GetComponent<AudioSource>();
-        PlayerPrefs.SetInt("CurrentLevel", 2);
-        PlayerPrefs.Save();
+        print(PlayerPrefs.GetInt("CurrentLevel"));
+        //PlayerPrefs.Save();
 
     }
 

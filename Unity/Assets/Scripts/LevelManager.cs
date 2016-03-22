@@ -11,6 +11,11 @@ public class LevelManager : MonoBehaviour {
         score += points;
     }
 
+    void Start()
+    {
+        PlayerPrefs.SetInt("CurrentLevel", 8);
+    }
+
     void OnGUI()
     {
         GUILayout.Label(score.ToString());

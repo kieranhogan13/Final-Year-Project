@@ -32,6 +32,6 @@ public class LibAnimation : MonoBehaviour {
 
     public void LibraryReturn()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(3);
     }
 }

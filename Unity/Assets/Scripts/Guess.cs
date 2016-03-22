@@ -24,6 +24,7 @@ public class Guess : MonoBehaviour {
 
     void Start()
     {
+        print(PlayerPrefs.GetInt("CurrentLevel"));
         levelname = "Level 5 - Test";
         category = "Test";
         MainCanvas.enabled = true;
@@ -44,8 +45,6 @@ public class Guess : MonoBehaviour {
     {
         SecureSettings.SetActive(ShowSecureSettings);
         buttons = GameObject.FindGameObjectsWithTag("Button");
-        PlayerPrefs.SetInt("CurrentLevel", 3);
-        PlayerPrefs.Save();
 
         if (PlayerPrefs.HasKey("bgR"))
         {
@@ -103,9 +102,13 @@ public class Guess : MonoBehaviour {
         WinCanvas.enabled = true;
         PlayerPrefs.SetInt("LevelProgress", 1);
         PlayerPrefs.SetFloat("LeveTime", Time.timeSinceLevelLoad);
-
+        PlayerPrefs.Save();
         if (applause == 0)
         {
+            int thisLevel = PlayerPrefs.GetInt("CurrentLevel");
+            thisLevel++;
+            PlayerPrefs.SetInt("CurrentLevel", thisLevel);
+            PlayerPrefs.Save();
             source.PlayOneShot(welldone, 1.0f);
             applause ++;
         }
@@ -126,6 +129,7 @@ public class Guess : MonoBehaviour {
         LoseCanvas.enabled = true;
         PlayerPrefs.SetInt("LevelProgress", 0);
         PlayerPrefs.SetFloat("LeveTime", Time.timeSinceLevelLoad);
+        PlayerPrefs.Save();
 
         timeplayed = Time.timeSinceLevelLoad;
         score = 0;
@@ -175,7 +179,7 @@ public class Guess : MonoBehaviour {
 
     public void NextButton()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel") + 1);
+        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
     }
     public void ExitButton()
     {

@@ -8,6 +8,11 @@ public class Library : MonoBehaviour {
     public GameObject[] buttons;
     public Camera cam;
 
+    void Start()
+    {
+        PlayerPrefs.SetInt("ReturnTo", 0);
+    }
+
     void Awake()
     {
         buttons = GameObject.FindGameObjectsWithTag("Button");
@@ -33,17 +38,17 @@ public class Library : MonoBehaviour {
 
     public void LoadLibraryActivities()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(4);
     }
 
     public void LoadLibraryGames()
     {
-        //SceneManager.LoadScene(0);
+        SceneManager.LoadScene(5);
     }
 
     public void LoadLibraryMoving()
     {
-        //SceneManager.LoadScene(0);
+        SceneManager.LoadScene(6);
     }
 
 }

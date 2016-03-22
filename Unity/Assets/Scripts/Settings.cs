@@ -45,7 +45,7 @@ public class Settings : MonoBehaviour {
 
     public void ReturnToLast()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
+        SceneManager.LoadScene(PlayerPrefs.GetInt("ReturnTo"));
     }
 
 }
