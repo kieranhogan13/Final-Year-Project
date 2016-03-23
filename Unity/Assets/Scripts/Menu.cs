@@ -10,13 +10,17 @@ public class Menu : MonoBehaviour {
     public bool CanMute;
     public GameObject[] buttons;
     public Camera cam;
-    public GameObject SecureSettings;
-    public bool ShowSecureSettings;
+    public bool firstTime;
 
     void  Start()
     {
+        if (firstTime)
+        {
+            LoadHelp();
+            firstTime = false;
+        }
+
         print(PlayerPrefs.GetInt("CurrentLevel"));
-;       Handheld.PlayFullScreenMovie("test.mp4", Color.black, FullScreenMovieControlMode.CancelOnInput);
 
         if (PlayerPrefs.GetInt("CurrentLevel") < 7 || PlayerPrefs.GetInt("CurrentLevel") > 8)
         {
@@ -30,7 +34,6 @@ public class Menu : MonoBehaviour {
     void Awake()
     {    
         MainCanvas.enabled = true;
-        SecureSettings.SetActive(ShowSecureSettings);
 
         CanMute = true;
         buttons = GameObject.FindGameObjectsWithTag("Button");
@@ -63,25 +66,9 @@ public class Menu : MonoBehaviour {
         }
     }
 
-    public void ShowSettingsSecure()
-    {
-        ShowSecureSettings = !ShowSecureSettings;
-        SecureSettings.SetActive(ShowSecureSettings);
-    }
-    public void HideSettingsSecure()
-    {
-        ShowSecureSettings = false;
-        SecureSettings.SetActive(ShowSecureSettings);
-    }
-
     public void LoadMenu()
     {
         SceneManager.LoadScene(0);
-    }
-
-    public void LoadSettings()
-    {
-        SceneManager.LoadScene(1);
     }
 
     public void LoadChoose()
@@ -102,6 +89,11 @@ public class Menu : MonoBehaviour {
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void LoadHelp()
+    {
+        Handheld.PlayFullScreenMovie("test.mp4", Color.black, FullScreenMovieControlMode.CancelOnInput);
     }
 
 }

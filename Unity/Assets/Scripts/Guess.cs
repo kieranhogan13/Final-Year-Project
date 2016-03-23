@@ -7,8 +7,6 @@ public class Guess : MonoBehaviour {
 
     public GameObject[] buttons;
     public Camera cam;
-    public GameObject SecureSettings;
-    public bool ShowSecureSettings;
     public Canvas MainCanvas, WinCanvas, LoseCanvas;
     public AudioClip welldone;
     private AudioSource source;
@@ -24,6 +22,8 @@ public class Guess : MonoBehaviour {
 
     void Start()
     {
+        PlayerPrefs.SetInt("ReturnTo", 7);
+        PlayerPrefs.Save();
         print(PlayerPrefs.GetInt("CurrentLevel"));
         levelname = "Level 5 - Test";
         category = "Test";
@@ -43,7 +43,6 @@ public class Guess : MonoBehaviour {
 
     void Awake()
     {
-        SecureSettings.SetActive(ShowSecureSettings);
         buttons = GameObject.FindGameObjectsWithTag("Button");
 
         if (PlayerPrefs.HasKey("bgR"))
@@ -184,22 +183,6 @@ public class Guess : MonoBehaviour {
     public void ExitButton()
     {
         SceneManager.LoadScene(0);
-    }
-
-    public void ShowSettingsSecure()
-    {
-        ShowSecureSettings = !ShowSecureSettings;
-        SecureSettings.SetActive(ShowSecureSettings);
-    }
-    public void HideSettingsSecure()
-    {
-        ShowSecureSettings = false;
-        SecureSettings.SetActive(ShowSecureSettings);
-    }
-
-    public void LoadSettings()
-    {
-        SceneManager.LoadScene(1);
     }
 
     public void MenuReturn()

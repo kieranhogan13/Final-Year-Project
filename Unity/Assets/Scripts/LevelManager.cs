@@ -10,7 +10,7 @@ public class LevelManager : MonoBehaviour {
 
     void Awake()
     {
-        
+        PlayerPrefs.SetInt("ReturnTo", 8);
         buttons = GameObject.FindGameObjectsWithTag("Button");
 
         if (PlayerPrefs.HasKey("bgR"))
