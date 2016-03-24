@@ -1,3 +1,11 @@
+<?php
+session_start();
+if(empty($_SESSION['login_admin']))
+{
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/login.php');
+    exit;
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

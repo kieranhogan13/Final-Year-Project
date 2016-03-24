@@ -50,11 +50,14 @@ public class PlayerManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            Jumping = true;
-            rb.AddForce(new Vector2(rb.velocity.x, jumpSpeedY));
-            anim.SetInteger("State", 3);
-            float vol = Random.Range(volLowRange, volHighRange);
-            source.PlayOneShot(bark, vol);
+            if (!Jumping)
+            {
+                Jumping = true;
+                rb.AddForce(new Vector2(rb.velocity.x, jumpSpeedY));
+                anim.SetInteger("State", 3);
+                float vol = Random.Range(volLowRange, volHighRange);
+                source.PlayOneShot(bark, vol);
+            }
         }
 
         if (speed > 0 && !facingRight || speed < 0 && facingRight)
@@ -107,10 +110,13 @@ public class PlayerManager : MonoBehaviour
 
     public void Jump()
     {
-        Jumping = true;
-        rb.AddForce(new Vector2(rb.velocity.x, jumpSpeedY));
-        anim.SetInteger("State", 3);
-        float vol = Random.Range(volLowRange, volHighRange);
-        source.PlayOneShot(bark, vol);
+        if (!Jumping)
+        {
+            Jumping = true;
+            rb.AddForce(new Vector2(rb.velocity.x, jumpSpeedY));
+            anim.SetInteger("State", 3);
+            float vol = Random.Range(volLowRange, volHighRange);
+            source.PlayOneShot(bark, vol);
+        }
     }
 }

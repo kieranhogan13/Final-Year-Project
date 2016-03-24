@@ -93,12 +93,19 @@
 
 <?php
 
+session_start();
+if(empty($_SESSION['login_admin']))
+{
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/login.php');
+    exit;
+}
+
   include("../includes/fusioncharts.php");
 
 
   $hostdb = "localhost";  // MySQl host
   $userdb = "root";  // MySQL username
-  $passdb = "";  // MySQL password
+  $passdb = "Language2016";  // MySQL password
   $namedb = "bootstrap";  // MySQL database name
 
   // Establish a connection to the database

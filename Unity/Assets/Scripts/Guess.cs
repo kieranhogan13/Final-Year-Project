@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class Guess : MonoBehaviour {
 
-    public GameObject[] buttons;
-    public Camera cam;
     public Canvas MainCanvas, WinCanvas, LoseCanvas;
     public AudioClip welldone;
     private AudioSource source;
@@ -23,6 +21,7 @@ public class Guess : MonoBehaviour {
     void Start()
     {
         PlayerPrefs.SetInt("ReturnTo", 7);
+        PlayerPrefs.SetInt("CurrentLevel", 7);
         PlayerPrefs.Save();
         print(PlayerPrefs.GetInt("CurrentLevel"));
         levelname = "Level 5 - Test";
@@ -43,20 +42,7 @@ public class Guess : MonoBehaviour {
 
     void Awake()
     {
-        buttons = GameObject.FindGameObjectsWithTag("Button");
 
-        if (PlayerPrefs.HasKey("bgR"))
-        {
-            Color color0 = new Color(PlayerPrefs.GetFloat("bgR"), PlayerPrefs.GetFloat("bgG"), PlayerPrefs.GetFloat("bgB"), 1);
-            cam.backgroundColor = color0;
-        }
-        if (PlayerPrefs.HasKey("btX"))
-        {
-            foreach (GameObject button in buttons)
-            {
-                button.transform.localScale = new Vector3(PlayerPrefs.GetFloat("btX"), PlayerPrefs.GetFloat("btY"), 1);
-            }
-        }
     }
 
     void Update()
