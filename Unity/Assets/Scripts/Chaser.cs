@@ -6,6 +6,8 @@ public class Chaser : MonoBehaviour
     public Transform target;
     public float speed;
     public float distance = 10f; //distance for it to chase
+    bool facingRight;
+    Animator anim;
 
     private Rigidbody2D myBody;
 
@@ -17,13 +19,23 @@ public class Chaser : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        speed = .02f;
+        anim = GetComponent<Animator>();
+        speed = .05f;
+        facingRight = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
+        Chase();
+
+        if (transform.position.x > 0 && !facingRight || transform.position.x < 0 && facingRight)
+        {
+            facingRight = !facingRight;
+            Vector3 temp = transform.localScale;
+            temp.x *= -1;
+            transform.localScale = temp;
+        }
 
         //transform.LookAt(target.position); //causes the sphere to chase the player
         //transform.Rotate(new Vector3(0, -90, 0), Space.Self); //corrects the rotation, not clear because object is sphere
@@ -44,5 +56,11 @@ public class Chaser : MonoBehaviour
         {
 
         }
+    }
+
+    void Chase()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
+        anim.SetInteger("State", 1);
     }
 }
