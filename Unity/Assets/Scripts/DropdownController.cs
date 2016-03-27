@@ -72,8 +72,8 @@ public class DropdownController : MonoBehaviour {
         foreach (GameObject button in buttons)
         {
             button.transform.localScale = new Vector3(0.5f, 0.5f, 1);
-            PlayerPrefs.SetFloat("btX", 0.5f);
-            PlayerPrefs.SetFloat("btY", 0.5f);
+            PlayerPrefs.SetFloat("btX", 0.6f);
+            PlayerPrefs.SetFloat("btY", 0.6f);
             PlayerPrefs.Save();
         }
     }
@@ -82,8 +82,8 @@ public class DropdownController : MonoBehaviour {
         foreach (GameObject button in buttons)
         {
             button.transform.localScale = new Vector3(0.75f, 0.75f, 1);
-            PlayerPrefs.SetFloat("btX", 0.75f);
-            PlayerPrefs.SetFloat("btY", 0.75f);
+            PlayerPrefs.SetFloat("btX", 0.8f);
+            PlayerPrefs.SetFloat("btY", 0.8f);
             PlayerPrefs.Save();
         }
     }
@@ -102,8 +102,8 @@ public class DropdownController : MonoBehaviour {
         foreach (GameObject button in buttons)
         {
             button.transform.localScale = new Vector3(1.25f, 1.25f, 1);
-            PlayerPrefs.SetFloat("btX", 1.25f);
-            PlayerPrefs.SetFloat("btY", 1.25f);
+            PlayerPrefs.SetFloat("btX", 1.2f);
+            PlayerPrefs.SetFloat("btY", 1.2f);
             PlayerPrefs.Save();
         }
     }
@@ -112,8 +112,8 @@ public class DropdownController : MonoBehaviour {
         foreach (GameObject button in buttons)
         {
             button.transform.localScale = new Vector3(1.5f, 1.5f, 1);
-            PlayerPrefs.SetFloat("btX", 1.5f);
-            PlayerPrefs.SetFloat("btY", 1.5f);
+            PlayerPrefs.SetFloat("btX", 1.4f);
+            PlayerPrefs.SetFloat("btY", 1.4f);
             PlayerPrefs.Save();
         }
     }

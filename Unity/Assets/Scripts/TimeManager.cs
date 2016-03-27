@@ -10,7 +10,10 @@ public class TimeManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        TimeBar.fillAmount -= DecreaseAmount = Time.deltaTime/10;
+        if  (TimeBar.fillAmount > 0)
+        {
+            TimeBar.fillAmount -= DecreaseAmount = Time.deltaTime / 10;
+        }
 
         if (TimeBar.fillAmount == 0f)
         {

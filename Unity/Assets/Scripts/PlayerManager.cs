@@ -32,6 +32,9 @@ public class PlayerManager : MonoBehaviour
     {
         //anim.SetInteger("State", 1);
         MovePlayer(speed);
+
+        JumpFall();
+
         if(Input.GetKeyDown(KeyCode.LeftArrow))
         {
             speed = -speedX;
@@ -70,6 +73,21 @@ public class PlayerManager : MonoBehaviour
 
     }
 
+    void JumpFall()
+    {
+        if (Jumping)
+        {
+            if (rb.velocity.y > 0)
+            {
+                anim.SetInteger("State", 3);
+            }
+            else
+            {
+                anim.SetInteger("State", 1);
+            }
+        }
+    }
+
     void MovePlayer(float playerSpeed)
     {
         rb.velocity = new Vector3(speed, rb.velocity.y, 0);
@@ -83,13 +101,12 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-
     void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Ground")
         {
-            Jumping = false;
             anim.SetInteger("State", 0);
+            Jumping = false;
         }
     }
 

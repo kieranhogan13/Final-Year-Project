@@ -27,16 +27,15 @@ public class Chaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Chase();
-
-        if (transform.position.x > 0 && !facingRight || transform.position.x < 0 && facingRight)
+        if (transform.position.x < target.position.x && !facingRight || transform.position.x > target.position.x && facingRight)
         {
             facingRight = !facingRight;
             Vector3 temp = transform.localScale;
             temp.x *= -1;
             transform.localScale = temp;
         }
-
+        anim.SetInteger("State", 1);
+        Chase();
         //transform.LookAt(target.position); //causes the sphere to chase the player
         //transform.Rotate(new Vector3(0, -90, 0), Space.Self); //corrects the rotation, not clear because object is sphere
 
@@ -48,19 +47,10 @@ public class Chaser : MonoBehaviour
         //}
     }
 
-    public virtual void OnTriggerEnter2D(Collider2D collision)
-    {
-        //The collision that kills the player exists in the enemy class, and 
-        //is inherited by the different enemy types Chaser, Xer, and Yer
-        if (collision.tag == "Player")
-        {
-
-        }
-    }
-
     void Chase()
     {
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed);
         anim.SetInteger("State", 1);
     }
+
 }
