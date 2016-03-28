@@ -8,6 +8,7 @@ public class Guess : MonoBehaviour {
     public Canvas MainCanvas, WinCanvas, LoseCanvas;
     public AudioClip welldone;
     private AudioSource source;
+    public GameObject dog;
 
     public bool word1, word2, word3, word4, word5;
     public int applause, wrongWordCount, scoreSaved;
@@ -20,6 +21,7 @@ public class Guess : MonoBehaviour {
 
     void Start()
     {
+        dog.GetComponent<Renderer>().enabled = true;
         PlayerPrefs.SetInt("ReturnTo", 7);
         PlayerPrefs.SetInt("CurrentLevel", 7);
         PlayerPrefs.Save();
@@ -83,6 +85,7 @@ public class Guess : MonoBehaviour {
 
     void CorrectAnswer()
     {
+        dog.GetComponent<Renderer>().enabled = false;
         MainCanvas.enabled = false;
         WinCanvas.enabled = true;
         PlayerPrefs.SetInt("LevelProgress", 1);
