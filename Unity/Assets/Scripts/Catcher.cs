@@ -12,13 +12,15 @@ public class Catcher : MonoBehaviour {
     public bool meowTime;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         source = GetComponent<AudioSource>();
         meowTime = true;
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update ()
+    {
         if (TimeBar.fillAmount < 0.9f)
         {
             meowTime = true;
