@@ -16,18 +16,17 @@ public class Guess : MonoBehaviour {
     public string levelname, category;
     public float timeplayed;
     public int score;
+    public int levelnumber;
     public string[] top10Scores;
     public string db_url = "http://fypc12561353.cloudapp.net/";
 
     void Start()
     {
         dog.GetComponent<Renderer>().enabled = true;
-        PlayerPrefs.SetInt("ReturnTo", 7);
-        PlayerPrefs.SetInt("CurrentLevel", 7);
+        PlayerPrefs.SetInt("ReturnTo", levelnumber);
+        PlayerPrefs.SetInt("CurrentLevel", levelnumber);
         PlayerPrefs.Save();
         print(PlayerPrefs.GetInt("CurrentLevel"));
-        levelname = "Level 5 - Test";
-        category = "Test";
         MainCanvas.enabled = true;
         WinCanvas.enabled = false;
         LoseCanvas.enabled = false;

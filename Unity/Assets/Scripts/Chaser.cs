@@ -9,13 +9,6 @@ public class Chaser : MonoBehaviour
     bool facingRight;
     Animator anim;
 
-    private Rigidbody2D myBody;
-
-    void Awake()
-    {
-        myBody = GetComponent<Rigidbody2D>();
-    }
-
     // Use this for initialization
     void Start()
     {

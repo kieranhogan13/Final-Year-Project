@@ -10,7 +10,7 @@ public class LevelEnd : MonoBehaviour {
     public AudioClip applause;
     private AudioSource source;
     public Image TimeBar;
-    public int gameOver;
+    public int gameOver, catches;
 
     // Use this for initialization
     void Start ()
@@ -23,7 +23,7 @@ public class LevelEnd : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if (TimeBar.fillAmount == 0.0f)
+	    if (TimeBar.fillAmount == 0.0f || catches >= 5)
         {
             gameOver++;
             if (gameOver == 1)

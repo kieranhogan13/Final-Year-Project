@@ -7,6 +7,7 @@ public class Runner : MonoBehaviour {
     public float distance = 10f; //distance for it to chase
     bool facingRight, jumping;
     Animator anim;
+    public LevelEnd levelEnd;
 
     private Rigidbody2D myBody;
 
@@ -65,6 +66,10 @@ public class Runner : MonoBehaviour {
         {
             anim.SetInteger("State", 0);
             jumping = false;
+        }
+        if (other.gameObject.tag == "Player")
+        {
+                levelEnd.catches++;
         }
     }
 }

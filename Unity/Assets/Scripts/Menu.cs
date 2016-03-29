@@ -24,7 +24,6 @@ public class Menu : MonoBehaviour {
         if (PlayerPrefs.GetInt("CurrentLevel") < 7 || PlayerPrefs.GetInt("CurrentLevel") > 8)
         {
             PlayerPrefs.SetInt("CurrentLevel", 7);
-            print("test");
         }
         PlayerPrefs.SetInt("ReturnTo", 0);
         PlayerPrefs.Save();

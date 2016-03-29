@@ -19,14 +19,28 @@ public class Choose : MonoBehaviour {
         SceneManager.LoadScene(0);
     }
 
-    public void LoadlLevel1()
+    public void LoadLevel1()
     {
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(9);
     }
 
     public void LoadLevel2()
     {
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(12);
     }
 
+    public void LoadLevel3()
+    {
+        SceneManager.LoadScene(15);
+    }
+
+    public void LoadLevel4()
+    {
+        SceneManager.LoadScene(18);
+    }
+
+    public void LoadLevel5()
+    {
+        SceneManager.LoadScene(21);
+    }
 }

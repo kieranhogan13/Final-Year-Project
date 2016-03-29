@@ -3,12 +3,12 @@ using System.Collections;
 
 public class Collectables : MonoBehaviour {
 
-    public LevelManager lvlman;
-    public int points = 10;
+    public Coins coins;
+    public int points;
 
-	// Use this for initialization
-	void Start () {
-        
+    // Use this for initialization
+    void Start () {
+
 	}
 	
 	// Update is called once per frame
@@ -20,8 +20,9 @@ public class Collectables : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            lvlman.AddPoints(points);
+            coins.AddPoints(points);
             Destroy(this.gameObject);
+            Debug.Log("Test");
         }
     }
 }
