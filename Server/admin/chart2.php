@@ -70,7 +70,7 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Time spent playing each level</h1>
+        <h1>Time spent playing all activities</h1>
         <div id="p1" >
         	<p class="lead">Here are the current statistics:</p>	   </div>
 
@@ -106,7 +106,7 @@ if(empty($_SESSION['login_admin']))
   $hostdb = "localhost";  // MySQl host
   $userdb = "root";  // MySQL username
   $passdb = "Language2016";  // MySQL password
-  $namedb = "bootstrap";  // MySQL database name
+  $namedb = "fyp";  // MySQL database name
 
   // Establish a connection to the database
 
@@ -139,8 +139,8 @@ if(empty($_SESSION['login_admin']))
   $arrData = array(
     "chart" => array
     (
-      "caption" => "Time Played each level (seconds)",
-      "paletteColors" => "#e60000",
+      "caption" => "Time playing each activity (seconds)",
+      "paletteColors" => "#00e6e6",
       "bgColor" => "#ffffff",
       "borderAlpha"=> "20",
       "canvasBorderAlpha"=> "0",

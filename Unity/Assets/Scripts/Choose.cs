@@ -1,15 +1,19 @@
-﻿using UnityEngine;
+﻿//Controls level select scene
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Choose : MonoBehaviour {
+public class Choose : MonoBehaviour
+{
+    public int retLevel;
 
-	// Use this for initialization
-	void Start () {
+    void Start ()
+    {
+        PlayerPrefs.SetInt("ReturnLevel", retLevel);
+        PlayerPrefs.Save();
+    }
 	
-	}
-	
-	// Update is called once per frame
 	void Update () {
 	
 	}

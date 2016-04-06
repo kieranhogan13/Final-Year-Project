@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Controls settings functions
+
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -29,18 +31,11 @@ public class Settings : MonoBehaviour {
         }
     }
 
-    public void Mute()
+    public void Reset()
     {
-        if (CanMute)
-        {
-            AudioListener.pause = true;
-            CanMute = false;
-        }
-        else
-        {
-            AudioListener.pause = false;
-            CanMute = true;
-        }
+        PlayerPrefs.SetInt("CurrentLevel", 7);
+        PlayerPrefs.SetInt("ReturnTo", 0);
+        PlayerPrefs.Save();
     }
 
     public void ReturnToLast()

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Controls animation for guess 1 level
+
+using UnityEngine;
 using System.Collections;
 
 public class Guess1 : MonoBehaviour

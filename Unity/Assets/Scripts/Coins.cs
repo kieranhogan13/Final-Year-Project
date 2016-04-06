@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Controls coin collectibles
+
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,7 +16,6 @@ public class Coins : MonoBehaviour {
     public AudioClip collectSound, applause;
     public int gameOver;
 
-    // Use this for initialization
     void Start () {
         MainCanvas.enabled = true;
         EndCanvas.enabled = false;
@@ -22,8 +23,7 @@ public class Coins : MonoBehaviour {
         source1 = GetComponent<AudioSource>();
         source2 = GetComponent<AudioSource>();
     }
-	
-	// Update is called once per frame
+
 	void Update () {
         if (TimeBar.fillAmount > 0)
         {

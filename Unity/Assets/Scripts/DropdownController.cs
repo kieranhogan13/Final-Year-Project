@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Controls each button in the dropdown menus
+
+using UnityEngine;
 using System.Collections;
 
 public class DropdownController : MonoBehaviour {
@@ -7,13 +9,11 @@ public class DropdownController : MonoBehaviour {
     public Camera cam;
     public float bgR, bgG, bgB, btX, btY;
 
-    // Use this for initialization
     void Start () {
         cam = Camera.main.GetComponent<Camera>();
         buttons = GameObject.FindGameObjectsWithTag("Button");
     }
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}

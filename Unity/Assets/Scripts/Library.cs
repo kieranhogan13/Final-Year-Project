@@ -1,34 +1,20 @@
-﻿using UnityEngine;
+﻿//Controls library category selection
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class Library : MonoBehaviour {
-
+public class Library : MonoBehaviour
+{
     public Canvas MainCanvas;
     public GameObject[] buttons;
     public Camera cam;
+    public int retLevel;
 
     void Start()
     {
-        PlayerPrefs.SetInt("ReturnTo", 0);
-    }
-
-    void Awake()
-    {
-        buttons = GameObject.FindGameObjectsWithTag("Button");
-
-        if (PlayerPrefs.HasKey("bgR"))
-        {
-            Color color0 = new Color(PlayerPrefs.GetFloat("bgR"), PlayerPrefs.GetFloat("bgG"), PlayerPrefs.GetFloat("bgB"), 1);
-            cam.backgroundColor = color0;
-        }
-        if (PlayerPrefs.HasKey("btX"))
-        {
-            foreach (GameObject button in buttons)
-            {
-                button.transform.localScale = new Vector3(PlayerPrefs.GetFloat("btX"), PlayerPrefs.GetFloat("btY"), 1);
-            }
-        }
+        PlayerPrefs.SetInt("ReturnLevel", retLevel);
+        PlayerPrefs.Save();
     }
 
     public void MenuReturn()
@@ -51,4 +37,8 @@ public class Library : MonoBehaviour {
         SceneManager.LoadScene(6);
     }
 
+        public void LoadHelp()
+    {
+        Handheld.PlayFullScreenMovie("librarytutorial.mp4", Color.black, FullScreenMovieControlMode.CancelOnInput);
+    }
 }

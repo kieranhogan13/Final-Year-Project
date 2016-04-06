@@ -106,7 +106,7 @@ if(empty($_SESSION['login_admin']))
   $hostdb = "localhost";  // MySQl host
   $userdb = "root";  // MySQL username
   $passdb = "Language2016";  // MySQL password
-  $namedb = "bootstrap";  // MySQL database name
+  $namedb = "fyp";  // MySQL database name
 
   // Establish a connection to the database
 
@@ -140,7 +140,7 @@ if(empty($_SESSION['login_admin']))
     "chart" => array
     (
       "caption" => "Score in each level",
-      "paletteColors" => "#e60000",
+      "paletteColors" => "#00e600",
       "bgColor" => "#ffffff",
       "borderAlpha"=> "20",
       "canvasBorderAlpha"=> "0",

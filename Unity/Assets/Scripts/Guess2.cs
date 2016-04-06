@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Controls animation for guess 2 level
+
+using UnityEngine;
 using System.Collections;
 
 public class Guess2 : MonoBehaviour {

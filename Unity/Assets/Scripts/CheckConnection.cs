@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Checks for internet connection
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -6,14 +8,12 @@ public class CheckConnection : MonoBehaviour {
 
    public Text connectionStatus;
 
-    // Use this for initialization
     void Start () {
         connectionStatus = GetComponent<Text>();
         StartCoroutine(CheckConn());
 
     }
 	
-	// Update is called once per frame
 	void Update () {
 	
 	}

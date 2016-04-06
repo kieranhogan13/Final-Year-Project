@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Controls collectables
+
+using UnityEngine;
 using System.Collections;
 
 public class Collectables : MonoBehaviour {
@@ -6,12 +8,10 @@ public class Collectables : MonoBehaviour {
     public Coins coins;
     public int points;
 
-    // Use this for initialization
     void Start () {
 
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 	
 	}

@@ -1,19 +1,17 @@
-﻿using UnityEngine;
+﻿//Animates library character
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class LibAnimation : MonoBehaviour {
-
+public class LibAnimation : MonoBehaviour
+{
     Animator anim;
-    // Use this for initialization
-    void Start () {
+
+    void Start ()
+    {
         anim = GetComponent<Animator>();
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 
     public void Run()
     {

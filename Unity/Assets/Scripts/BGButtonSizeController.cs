@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Controls buttons and background
+
+using UnityEngine;
 using System.Collections;
 
 public class BGButtonSizeController : MonoBehaviour {
@@ -6,7 +8,6 @@ public class BGButtonSizeController : MonoBehaviour {
     public GameObject[] buttons;
     public Camera cam;
     
-    // Use this for initialization
     void Start () {
         buttons = GameObject.FindGameObjectsWithTag("Button");
 
@@ -24,7 +25,6 @@ public class BGButtonSizeController : MonoBehaviour {
         }
     }
 	
-	// Update is called once per frame
 	void Update () {
 	    
 	}

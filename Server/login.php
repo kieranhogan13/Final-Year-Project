@@ -7,14 +7,14 @@
 		$myusername = addslashes($_POST['username']);
 		$mypassword = md5(addslashes($_POST['password']));
 
-		$sql = "SELECT userid FROM tbl_users WHERE username='$myusername' and password='$mypassword'";
+		$sql = "SELECT userid FROM users WHERE username='$myusername' and password='$mypassword'";
 		$result = mysql_query($sql);
 		$count = mysql_num_rows($result);
 
 		if ($count == 1)
 		{
 			$_SESSION['login_admin']=$myusername;
-			header("location: http://localhost:7777/admin/");
+			header("location: http://fypc12561353.cloudapp.net/admin/");
 		}
 	}
 ?>
@@ -44,17 +44,12 @@
 
     <div class="container">
       <form class="form-signin" method="post">
-        <h2 class="form-signin-heading">Login</h2>
+        <h2 class="form-signin-heading" style="text-align: center;">Login</h2>
         <label for="inputEmail" class="sr-only">Email address</label>
         <input name="username" type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
         <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+        <button class="btn btn-lg btn-warning btn-block" type="submit">Log in</button>
       </form>
 
     </div> <!-- /container -->

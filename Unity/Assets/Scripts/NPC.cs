@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Controls secondary character reaction to contact
+
+using UnityEngine;
 using System.Collections;
 
 public class NPC : MonoBehaviour {
@@ -6,13 +8,11 @@ public class NPC : MonoBehaviour {
     public GameObject speechBubble;
     private SpriteRenderer cat;
 
-    // Use this for initialization
     void Start () {
         cat = GetComponent<SpriteRenderer>();
         cat.sortingOrder = 2;
     }
 	
-	// Update is called once per frame
 	void Update () {
 
     }

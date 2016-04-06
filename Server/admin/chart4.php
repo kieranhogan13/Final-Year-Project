@@ -70,7 +70,7 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Score per category</h1>
+        <h1>Total time played</h1>
         <div id="p1" >
         	<p class="lead">Here are the current statistics:</p>	   </div>
 
@@ -106,7 +106,7 @@ if(empty($_SESSION['login_admin']))
   $hostdb = "localhost";  // MySQl host
   $userdb = "root";  // MySQL username
   $passdb = "Language2016";  // MySQL password
-  $namedb = "bootstrap";  // MySQL database name
+  $namedb = "fyp";  // MySQL database name
 
   // Establish a connection to the database
 
@@ -124,7 +124,7 @@ if(empty($_SESSION['login_admin']))
 
   // Form the SQL query that returns the top 10 most populous countries
 
-  $strQuery = "SELECT category, SUM(score) FROM tracking ORDER BY category";
+  $strQuery = "SELECT timeplayed, SUM(timeplayed) FROM tracking ORDER BY timeplayed";
 
   // Execute the query, or else return the error message.
 
@@ -139,8 +139,8 @@ if(empty($_SESSION['login_admin']))
   $arrData = array(
     "chart" => array
     (
-      "caption" => "Score per category",
-      "paletteColors" => "#e60000",
+      "caption" => "Total time played (seconds)",
+      "paletteColors" => "#e6e600",
       "bgColor" => "#ffffff",
       "borderAlpha"=> "20",
       "canvasBorderAlpha"=> "0",
@@ -161,8 +161,8 @@ if(empty($_SESSION['login_admin']))
 
   while($row = mysqli_fetch_array($result)) {
   array_push($arrData["data"], array(
-    "label" => $row["category"],
-    "value" => $row["SUM(score)"]
+    "label" => "Total",
+    "value" => $row["SUM(timeplayed)"]
     )
   );
   }

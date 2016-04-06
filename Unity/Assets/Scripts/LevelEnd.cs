@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿//Controls level ending, not used currently
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
@@ -12,7 +14,6 @@ public class LevelEnd : MonoBehaviour {
     public Image TimeBar;
     public int gameOver, catches;
 
-    // Use this for initialization
     void Start ()
     {
         MainCanvas.enabled = true;
@@ -20,8 +21,7 @@ public class LevelEnd : MonoBehaviour {
         source = GetComponent<AudioSource>();
         gameOver = 0;
     }
-	
-	// Update is called once per frame
+
 	void Update () {
 	    if (TimeBar.fillAmount == 0.0f || catches >= 5)
         {

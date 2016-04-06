@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿//Controls logic for guessing games
+
+using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-
 
 public class Guess : MonoBehaviour {
 
@@ -9,6 +10,7 @@ public class Guess : MonoBehaviour {
     public AudioClip welldone;
     private AudioSource source;
     public GameObject dog;
+    public SceneMan sceneMan;
 
     public bool word1, word2, word3, word4, word5;
     public int applause, wrongWordCount, scoreSaved;
@@ -16,17 +18,12 @@ public class Guess : MonoBehaviour {
     public string levelname, category;
     public float timeplayed;
     public int score;
-    public int levelnumber;
     public string[] top10Scores;
     public string db_url = "http://fypc12561353.cloudapp.net/";
 
     void Start()
     {
         dog.GetComponent<Renderer>().enabled = true;
-        PlayerPrefs.SetInt("ReturnTo", levelnumber);
-        PlayerPrefs.SetInt("CurrentLevel", levelnumber);
-        PlayerPrefs.Save();
-        print(PlayerPrefs.GetInt("CurrentLevel"));
         MainCanvas.enabled = true;
         WinCanvas.enabled = false;
         LoseCanvas.enabled = false;
@@ -60,26 +57,16 @@ public class Guess : MonoBehaviour {
 
     IEnumerator SaveScores()
     {
-        // first we create a new WWWForm, that means a "post" command goes out to our database (for futher information just google "post" and "get" commands for html/php
         WWWForm form = new WWWForm();
 
-        // with this line we will give a new name and save our score into that name
-        // those "" indicate a string and attach the score after the comma to it
         form.AddField("newLevel", levelname);
         form.AddField("newCategory", category);
         form.AddField("newTime", timeplayed.ToString());
         form.AddField("newScore", score);
 
-        print("debug: test");
-        // the next line will start our php file that saves the Score and attaches the saved values from the "form" to it
-        // For this tutorial I've used a new variable "db_url" that stores the path
         WWW webRequest = new WWW(db_url + "save.php", form);
 
-        // with this line we'll wait until we get an info back
         yield return webRequest;
-
-        string webRequestString = webRequest.text;
-        print(webRequestString);
     }
 
     void CorrectAnswer()
@@ -161,21 +148,21 @@ public class Guess : MonoBehaviour {
 
     public void TryAgainButton()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
+        sceneMan.CurrentLevel();
     }
 
     public void NextButton()
     {
-        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
+        sceneMan.NextLevel();
     }
+
     public void ExitButton()
     {
         SceneManager.LoadScene(0);
     }
 
-    public void MenuReturn()
+    public void LoadHelp()
     {
-        SceneManager.LoadScene(0);
+        Handheld.PlayFullScreenMovie("wordtutorial.mp4", Color.black, FullScreenMovieControlMode.CancelOnInput);
     }
-
 }
